@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filosofija</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="content">
+    <h1>Dzīve-laime-vērtības</h1>
+
+    <img src="rav4.png" alt="Toyota RAV4" style="max-width:100%; border-radius:10px;"/>
+
+    <div style="margin-top:1rem;">
+      <button onclick="like()">👍 Patīk</button>
+      <button onclick="dislike()">👎 Nepatīk</button>
+      <span id="votes"></span>
+    </div>
+
+    <div id="disqus_thread" style="margin-top:3rem;"></div>
+  </main>
+
+  <script>
+    let likes = 0, dislikes = 0;
+    function like() {
+      likes++; updateVotes();
+    }
+    function dislike() {
+      dislikes++; updateVotes();
+    }
+    function updateVotes() {
+      document.getElementById('votes').innerText = ` ${likes} Patīk, ${dislikes} Nepatīk`;
+    }
+  </script>
+
+  <script>
+    var disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = "blog3";
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://gintsroz.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+</body>
+</html>

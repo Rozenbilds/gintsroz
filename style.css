@@ -1,0 +1,93 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+.header-container {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(1.35); /* Nedaudz gaišāks fons */
+  object-fit: cover;
+}
+
+.header-text {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+}
+
+.header-text h1 {
+  font-size: 4rem;
+}
+
+.header-text p {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+.content {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: black;
+}
+
+.content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #ffd966;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  opacity: 0.95;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .header-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-text p {
+    font-size: 1rem;
+  }
+
+  .gallery img {
+    width: 90%;
+  }
+}
