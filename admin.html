@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloga raksts</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 2rem; }
+    input, textarea, button { display: block; margin-bottom: 1rem; width: 100%; }
+    img { max-width: 100%; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Izveido bloga ierakstu</h1>
+
+  <input type="text" id="title" placeholder="Virsraksts">
+  <textarea id="content" rows="8" placeholder="Tavs apraksts..."></textarea>
+  <input type="file" id="image" accept="image/*">
+  <button onclick="generateBlog()">Publicēt</button>
+
+  <div id="preview" style="margin-top:2rem;"></div>
+
+  <script>
+    function generateBlog() {
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+      const imageInput = document.getElementById('image');
+      const preview = document.getElementById('preview');
+
+      if (!title || !content || !imageInput.files.length) {
+        alert("Aizpildi visu un izvēlies bildi!");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imgSrc = e.target.result;
+
+        const htmlContent = `
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>${title}</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="content">
+    <h1>${title}</h1>
+    <img src="${imgSrc}" alt="Attēls" />
+    <p>${content}</p>
+  </main>
+</body>
+</html>`;
+
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+
+        preview.innerHTML = `
+          <p>Gatavs fails:</p>
+          <a href="${url}" download="${title.toLowerCase().replace(/\s+/g, '-')}.html">⬇️ Lejupielādēt .html</a>
+        `;
+      };
+
+      reader.readAsDataURL(imageInput.files[0]);
+    }
+  </script>
+</body>
+</html>
