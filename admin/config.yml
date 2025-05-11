@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: Rozenbilds/gintsroz
+  name: git-gateway
   branch: main
-
 site_url: https://gintsrozen.netlify.app
 
 media_folder: "images/uploads"
