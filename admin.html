@@ -6,7 +6,7 @@
   <style>
     body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 2rem; }
     input, textarea, button { display: block; margin-bottom: 1rem; width: 100%; }
-    img { max-width: 100%; margin-top: 1rem; }
+    img, video { max-width: 100%; margin-top: 1rem; }
   </style>
 </head>
 <body>
@@ -15,7 +15,10 @@
 
   <input type="text" id="title" placeholder="Virsraksts">
   <textarea id="content" rows="8" placeholder="Tavs apraksts..."></textarea>
-  <input type="file" id="image" accept="image/*">
+  <label>Izvēlies vairākas bildes:</label>
+  <input type="file" id="images" accept="image/*" multiple>
+  <label>Pievieno video (.mp4):</label>
+  <input type="file" id="video" accept="video/mp4">
   <button onclick="generateBlog()">Publicēt</button>
 
   <div id="preview" style="margin-top:2rem;"></div>
@@ -24,19 +27,55 @@
     function generateBlog() {
       const title = document.getElementById('title').value;
       const content = document.getElementById('content').value;
-      const imageInput = document.getElementById('image');
+      const imageInput = document.getElementById('images');
+      const videoInput = document.getElementById('video');
       const preview = document.getElementById('preview');
 
       if (!title || !content || !imageInput.files.length) {
-        alert("Aizpildi visu un izvēlies bildi!");
+        alert("Aizpildi virsrakstu, tekstu un izvēlies vismaz vienu bildi!");
         return;
       }
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const imgSrc = e.target.result;
+      let imageTags = '';
+      let filesLoaded = 0;
+      const totalFiles = imageInput.files.length + (videoInput.files.length ? 1 : 0);
 
-        const htmlContent = `
+      function checkAllLoaded(finalHtmlContent) {
+        filesLoaded++;
+        if (filesLoaded === totalFiles) {
+          const blob = new Blob([finalHtmlContent], { type: 'text/html' });
+          const url = URL.createObjectURL(blob);
+          preview.innerHTML = `
+            <p>Gatavs fails:</p>
+            <a href="${url}" download="${title.toLowerCase().replace(/\s+/g, '-')}.html">⬇️ Lejupielādēt .html</a>
+          `;
+        }
+      }
+
+      Array.from(imageInput.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imageTags += `<img src="${e.target.result}" alt="Attēls" />\n`;
+          if (filesLoaded + 1 === totalFiles) {
+            buildHtml();
+          }
+          checkAllLoaded(buildHtml());
+        };
+        reader.readAsDataURL(file);
+      });
+
+      let videoTag = '';
+      if (videoInput.files.length) {
+        const videoReader = new FileReader();
+        videoReader.onload = function(e) {
+          videoTag = `<video controls><source src="${e.target.result}" type="video/mp4"></video>\n`;
+          checkAllLoaded(buildHtml());
+        };
+        videoReader.readAsDataURL(videoInput.files[0]);
+      }
+
+      function buildHtml() {
+        return `
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -47,22 +86,13 @@
 <body>
   <main class="content">
     <h1>${title}</h1>
-    <img src="${imgSrc}" alt="Attēls" />
+    ${imageTags}
+    ${videoTag}
     <p>${content}</p>
   </main>
 </body>
 </html>`;
-
-        const blob = new Blob([htmlContent], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-
-        preview.innerHTML = `
-          <p>Gatavs fails:</p>
-          <a href="${url}" download="${title.toLowerCase().replace(/\s+/g, '-')}.html">⬇️ Lejupielādēt .html</a>
-        `;
-      };
-
-      reader.readAsDataURL(imageInput.files[0]);
+      }
     }
   </script>
 </body>
