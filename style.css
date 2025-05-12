@@ -18,6 +18,15 @@ body, html {
   max-width: 100vw;
   overflow: hidden;
 }
+/* === Pievieno pašā style.css beigās === */
+.responsive-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 
 .background-image {
   width: 100%;
