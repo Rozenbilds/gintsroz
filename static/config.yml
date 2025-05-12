@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://gintsrozen.netlify.app
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blogs"
+    label: "Ceļojumi"
+    folder: "content/blogs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nosaukums", name: "title", widget: "string" }
+      - { label: "Datums", name: "date", widget: "datetime" }
+      - { label: "Attēls", name: "image", widget: "image" }
+      - { label: "Saturs", name: "body", widget: "markdown" }
