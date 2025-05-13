@@ -1,9 +1,70 @@
-/* Jauna galerijas stila klase */
+/* Vispārēji labojumi */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Melnais fons visai lapai */
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden; /* Noņem horizontālo ritjoslu */
+}
+
+/* Pilna ekrāna fona attēls */
+.header-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Aizņem visu ekrānu */
+  overflow: hidden;
+  background: url("background.png") no-repeat center center/cover; /* Fiksēts fons */
+}
+
+/* Galvenes teksts */
+.header-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffd966; /* Gaiši dzeltens teksts */
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+.header-text h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.header-text p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Saturs */
+.content {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: black;
+}
+
+.content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #ffd966;
+}
+
+/* Galerija */
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .gallery img {
   width: 220px;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -12,25 +73,25 @@
   opacity: 1;
 }
 
-/* Galvenes teksts */
-.header-text h1 {
-  font-size: 3rem;
-  color: #ffd966;
+/* Melnais laukums apakšā */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: black;
+  color: white;
 }
 
-.header-text p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  color: #fff;
-}
-
-/* Mobilo ierīču atbalsts */
+/* Mobilajām ierīcēm */
 @media (max-width: 768px) {
-  .gallery img {
-    width: 90%;
+  .header-text h1 {
+    font-size: 2.5rem;
   }
 
-  .header-text h1 {
-    font-size: 2rem;
+  .header-text p {
+    font-size: 1rem;
+  }
+
+  .gallery img {
+    width: 90%;
   }
 }
