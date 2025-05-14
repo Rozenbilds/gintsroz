@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="lv">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gints Lifestyle</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Admin</title>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
+</body>
+</html>
+
   <nav class="navbar">
     <div class="nav-left">
       <a href="../index.html">🏠 Sākums</a>
@@ -37,18 +38,6 @@
       document.body.classList.toggle('dark-mode');
     });
 
-    // Decap CMS konfigurācija
-    window.CMS_MANUAL_INIT = true;
-
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "Rozenbilds/gintsroz",
-          branch: "main",
-          auth_type: "oauth",
-          app_id: "Ov23liWzlOWBvdlAqohZ"
-        },
         site_url: "https://gintsroz.pages.dev",
         media_folder: "images/uploads",
         public_folder: "/images/uploads",
