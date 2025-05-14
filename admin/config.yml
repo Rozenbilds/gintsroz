@@ -1,9 +1,11 @@
 backend:
   name: github
-  repo: Rozenbilds/gintsroz  
+  repo: Rozenbilds/gintsroz
   branch: main
+  auth_scope: repo
+  base_url: https://api.netlify.com # ← šo vajag noņemt, ja vairs neizmanto Netlify
 
-site_url: https://gintsroz.pages.dev  
+site_url: https://gintsroz.pages.dev
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
