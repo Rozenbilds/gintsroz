@@ -1,66 +1,14 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Admin</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</head>
-<body>
-</body>
-</html>
-
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="../index.html">🏠 Sākums</a>
-    </div>
-    <div class="nav-right">
-      <button id="themeToggle">🌗 Režīms</button>
-    </div>
-  </nav>
-
-  <header class="header-container">
-    <img src="../background.png" alt="Fons" class="background-image" />
-    <div class="header-text">
-    </div>
-  </header>
-
-  <main class="content">
-    <h2>Pārvaldīt ierakstus</h2>
-  </main>
-
-  <footer class="footer">
-    <p>© 2025 Gints Rozenbilds</p>
-  </footer>
-
-  <script>
-    const toggleBtn = document.getElementById('themeToggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-
-        site_url: "https://gintsroz.pages.dev",
-        media_folder: "images/uploads",
-        public_folder: "/images/uploads",
-        collections: [
-          {
-            name: "blogs",
-            label: "Ceļojumi",
-            folder: "content/blogs",
-            create: true,
-            slug: "{{slug}}",
-            fields: [
-              { label: "Nosaukums", name: "title", widget: "string" },
-              { label: "Datums", name: "date", widget: "datetime" },
-              { label: "Attēls", name: "image", widget: "image" },
-              { label: "Video saite (YouTube, Vimeo)", name: "video", widget: "string", required: false },
-              { label: "Faila pievienošana (PDF, DOC u.c.)", name: "file", widget: "file", required: false },
-              { label: "Saturs", name: "body", widget: "markdown" }
-            ]
-          }
-        ]
-      }
-    });
-  </script>
-</body>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin – Ginta Rozenbilda Blogs</title>
+    <!-- Decap CMS bibliotēka -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <!-- CMS tiks ielādēts šeit -->
+    <div id="nc-root"></div>
+  </body>
 </html>
