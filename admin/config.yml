@@ -3,6 +3,9 @@ backend:
   repo: Rozenbilds/gintsroz
   branch: main
   auth_scope: repo
+  base_url: https://authentic-github-oauth.deno.dev
+  auth_endpoint: auth
+
  
 site_url: https://gintsroz.pages.dev
 media_folder: "images/uploads"
