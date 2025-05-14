@@ -4,17 +4,9 @@ backend:
   branch: main
 
 site_url: https://gintsroz.pages.dev  
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/uploads"         # Augšupielāžu mape GitHub repozitorijā
+public_folder: "/images/uploads"       # Ceļš uz bildēm tīmeklī
 
 collections:
   - name: "blogs"
-    label: "Ceļojumi"
-    folder: "content/blogs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nosaukums", name: "title", widget: "string" }
-      - { label: "Datums", name: "date", widget: "datetime" }
-      - { label: "Attēls", name: "image", widget: "image" }
-      - { label: "Saturs", name: "body", widget: "markdown" }
+    label: "Ceļojumi
