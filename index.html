@@ -19,7 +19,7 @@
   <header class="header-container">
     <img src="background.png" alt="Fons" class="background-image" />
     <div class="header-text">
-    </div>
+      </div>
   </header>
 
   <main class="content">
@@ -28,3 +28,27 @@
       <a href="blog1.html"><img src="green-kawasaki.png" alt="Zaļais Kawasaki" /></a>
       <a href="blog2.html"><img src="red-kawasaki.png" alt="Sarkanais Kawasaki" /></a>
       <a href="blog3.html"><img src="rav4.png" alt="Toyota RAV4" /></a>
+      <a href="q5.html"><img src="Q5.png" alt="Audi Q5" /></a>
+    </div>
+
+    </main>
+
+  <footer class="footer">
+    <p>© 2025 Gints Rozenbilds</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const giscus = document.querySelector('iframe.giscus-frame');
+      if (giscus) {
+        giscus.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: document.body.classList.contains('dark-mode') ? 'dark' : 'light' } } },
+          'https://giscus.app'
+        );
+      }
+    });
+  </script>
+</body>
+</html>
