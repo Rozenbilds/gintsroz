@@ -9,4 +9,4 @@ public_folder: "/images/uploads"       # Ceļš uz bildēm tīmeklī
 
 collections:
   - name: "blogs"
-    label: "Ceļojumi
+    label: "Ceļojumi"
