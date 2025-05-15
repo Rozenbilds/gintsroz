@@ -4,7 +4,8 @@ backend:
   branch: main
   base_url: https://authentic-github-oauth.deno.dev
   auth_endpoint: auth
-  auth_scope: repo
+  auth_scope: public_repo
+  site_url: https://gintsroz.pages.dev/
 
   
 media_folder: "images/uploads"
