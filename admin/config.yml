@@ -6,7 +6,7 @@ backend:
   auth_endpoint: auth
   site_url: https://gintsroz.pages.dev/
   auth_scope: repo
-   
+
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
@@ -17,9 +17,23 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Nosaukums", name: "title", widget: "string" }
-      - { label: "Datums", name: "date", widget: "datetime" }
-      - { label: "Attēls", name: "image", widget: "image" }
-      - { label: "Video saite (YouTube, Vimeo)", name: "video", widget: "string", required: false }
-      - { label: "Faila pievienošana (PDF, DOC u.c.)", name: "file", widget: "file", required: false }
-      - { label: "Saturs", name: "body", widget: "markdown" }
+      - label: "Nosaukums"
+        name: "title"
+        widget: "string"
+      - label: "Datums"
+        name: "date"
+        widget: "datetime"
+      - label: "Attēls"
+        name: "image"
+        widget: "image"
+      - label: "Video saite (YouTube, Vimeo)"
+        name: "video"
+        widget: "string"
+        required: false
+      - label: "Faila pievienošana (PDF, DOC u.c.)"
+        name: "file"
+        widget: "file"
+        required: false
+      - label: "Saturs"
+        name: "body"
+        widget: "markdown"
