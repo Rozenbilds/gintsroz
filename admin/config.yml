@@ -2,10 +2,9 @@ backend:
   name: github
   repo: Rozenbilds/gintsroz
   branch: main
-  base_url: https://decap-oauth-gintsroz.vercel.app
-  auth_endpoint: auth
+  base_url: https://decap-oauth.deno.dev
+  auth_endpoint: github
   site_url: https://gintsroz.pages.dev/
-  auth_scope: repo
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
