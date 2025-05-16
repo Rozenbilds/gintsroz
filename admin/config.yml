@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Rozenbilds/gintsroz
   branch: main
-  base_url: https://decap-oauth.deno.dev
+  base_url: https://gintsroz-oauth.vercel.app
   auth_endpoint: github
   site_url: https://gintsroz.pages.dev/
 
