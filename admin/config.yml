@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Rozenbilds/gintsroz
   branch: main
-  base_url: https://gintsroz-oauth.vercel.app
+  base_url: https://gintsroz.pages.dev/
   auth_endpoint: github
   site_url: https://gintsroz.pages.dev/
 
