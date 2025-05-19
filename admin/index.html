@@ -9,7 +9,19 @@
     <script src="https://unpkg.com/decap-cms@3.6.3/dist/decap-cms.js"></script>
     <script>
       window.CMS_MANUAL_INIT = true;
-      CMS.init();
+
+      fetch("/admin/config.yml")
+        .then(res => {
+          if (!res.ok) throw new Error("Nevar ielādēt config.yml");
+          return res.text();
+        })
+        .then(config => {
+          CMS.init({ config });
+        })
+        .catch(err => {
+          document.body.innerHTML = `<pre>Kļūda: ${err.message}</pre>`;
+          console.error(err);
+        });
     </script>
   </body>
 </html>
