@@ -3,24 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <title>Admin</title>
-    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="https://unpkg.com/decap-cms@3.6.3/dist/decap-cms.css" />
   </head>
   <body>
-    <div id="nc-root"></div>
+    <div id="nc-root"></div> <!-- Obligāts elements -->
     <script src="https://unpkg.com/decap-cms@3.6.3/dist/decap-cms.js"></script>
     <script>
+      // Palaiž CMS ar manuālu ielādi
       window.CMS_MANUAL_INIT = true;
 
-      fetch("/admin/config.yml")
-        .then(res => {
+      fetch("config.yml")
+        .then((res) => {
           if (!res.ok) throw new Error("Nevar ielādēt config.yml");
           return res.text();
         })
-        .then(config => {
+        .then((config) => {
           CMS.init({ config });
         })
-        .catch(err => {
-          document.body.innerHTML = `<pre>Kļūda: ${err.message}</pre>`;
+        .catch((err) => {
+          document.body.innerHTML = "<pre>Kļūda: " + err.message + "</pre>";
           console.error(err);
         });
     </script>
