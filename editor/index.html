@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown redaktors</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 1em;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      font-family: monospace;
+      margin-bottom: 1em;
+    }
+    .preview {
+      border: 1px solid #ccc;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Raksta redaktors (Markdown)</h1>
+  <textarea id="editor" placeholder="Raksti te..."></textarea>
+  <button onclick="copyMarkdown()">📋 Nokopēt Markdown</button>
+  <h2>Priekšskatījums</h2>
+  <div class="preview" id="preview"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const editor = document.getElementById("editor");
+    const preview = document.getElementById("preview");
+
+    editor.addEventListener("input", () => {
+      preview.innerHTML = marked.parse(editor.value);
+    });
+
+    function copyMarkdown() {
+      navigator.clipboard.writeText(editor.value).then(() => {
+        alert("Markdown nokopēts!");
+      });
+    }
+  </script>
+</body>
+</html>
