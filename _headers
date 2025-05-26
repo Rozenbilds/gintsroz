@@ -1,0 +1,11 @@
+/admin/config.yml
+  Content-Type: text/yaml
+
+/admin/index.html
+  Content-Type: text/html
+
+/admin/style.css
+  Content-Type: text/css
+
+/admin/cms.js
+  Content-Type: application/javascript
