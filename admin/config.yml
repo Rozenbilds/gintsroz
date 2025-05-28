@@ -22,3 +22,56 @@ collections:
       - label: "Datums"
         name: "date"
         widget: "datetime"
+
+      - label: "Attēls"
+        name: "image"
+        widget: "image"
+
+      - label: "Video saite (YouTube, Vimeo)"
+        name: "video"
+        widget: "string"
+        required: false
+
+      - label: "Faila pievienošana (PDF, DOC u.c.)"
+        name: "file"
+        widget: "file"
+        required: false
+
+      - label: "Google Maps iframe"
+        name: "map"
+        widget: "text"
+        required: false
+        hint: "Ievieto Google Maps 'Iegult' iframe kodu šeit"
+
+      - label: "Galerija"
+        name: "gallery"
+        widget: "list"
+        summary: "{{fields.image}}"
+        required: false
+        fields:
+          - label: "Attēls"
+            name: "image"
+            widget: "image"
+          - label: "Paraksts"
+            name: "caption"
+            widget: "string"
+
+      - label: "Papildus HTML kods"
+        name: "html_block"
+        widget: "text"
+        hint: "Brīvs HTML fragments (iframe, embed utt.)"
+        required: false
+
+      - label: "Saturs"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-one
+          - heading-two
+          - quote
+          - code
+          - bulleted-list
+          - numbered-list
