@@ -2,7 +2,6 @@ backend:
   name: github
   repo: Rozenbilds/gintsroz
   branch: main
-  base_url: https://authentic.deno.dev
   site_url: https://rozenbilds.github.io/gintsroz/
 
 media_folder: "images/uploads"
@@ -14,6 +13,7 @@ collections:
     folder: "content/blogs"
     create: true
     slug: "{{slug}}"
+    format: "frontmatter"
     fields:
       - label: "Nosaukums"
         name: "title"
@@ -21,7 +21,13 @@ collections:
       - label: "Datums"
         name: "date"
         widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm"
       - label: "Attēls"
         name: "image"
         widget: "image"
-      - labe
+      - label: "Saturs"
+        name: "body"
+        widget: "markdown"
+
