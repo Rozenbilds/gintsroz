@@ -3,7 +3,6 @@ backend:
   repo: Rozenbilds/gintsroz
   branch: main
   base_url: https://authentic.deno.dev
-  site_url: https://gintsroz.pages.dev/
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
