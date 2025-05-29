@@ -15,8 +15,7 @@
       <button onclick="like()">👍 Patīk</button>
       <button onclick="dislike()">👎 Nepatīk</button>
       <span id="votes"></
-<div class="giscus"></div>
-
+ <!-- Giscus komentāri šeit! -->
 <script src="https://giscus.app/client.js"
         data-repo="Rozenbilds/gintsroz"
         data-repo-id="R_kgDOOnY_UQ"
@@ -32,3 +31,20 @@
         crossorigin="anonymous"
         async>
 </script>
+
+  </main>
+
+  <script>
+    let likes = 0, dislikes = 0;
+    function like() {
+      likes++; updateVotes();
+    }
+    function dislike() {
+      dislikes++; updateVotes();
+    }
+    function updateVotes() {
+      document.getElementById('votes').innerText = ` ${likes} Patīk, ${dislikes} Nepatīk`;
+    }
+  </script>
+</body>
+</html>
