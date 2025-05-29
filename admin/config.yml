@@ -1,33 +1,4 @@
-backend:
-  name: github
-  repo: Rozenbilds/gintsroz
-  branch: main
-  site_url: https://rozenbilds.github.io/gintsroz/
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "blogs"
-    label: "Ceļojumi"
-    folder: "content/blogs"
-    create: true
-    slug: "{{slug}}"
-    format: "frontmatter"
-    fields:
-      - label: "Nosaukums"
-        name: "title"
-        widget: "string"
-      - label: "Datums"
-        name: "date"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm"
-      - label: "Attēls"
-        name: "image"
-        widget: "image"
-      - label: "Saturs"
-        name: "body"
-        widget: "markdown"
-
+# Šis fails vairs netiek izmantots, jo rediģēšana notiek lokāli bez CMS.
+# Raksti atrodas mapē: content/blogs
+# Attēli atrodas mapē: images/uploads
+# Formāts: Markdown ar frontmatter
